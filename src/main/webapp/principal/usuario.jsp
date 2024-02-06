@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -171,11 +172,8 @@ function buscarUsuario() {
 	     url : urlAction,
 	     data : "nomeBusca=" + nomeBusca + '&acao=buscarUserAjax',
 	     success: function (response) {
-		 
-	   	alert(response) 	 
-	    	 
+ 
 		 var json = JSON.parse(response);
-		 
 		 
 		 $('#tabelaresultados > tbody > tr').remove();
 		 

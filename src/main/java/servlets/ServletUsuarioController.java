@@ -49,9 +49,8 @@ public class ServletUsuarioController extends HttpServlet {
 					
 					response.getWriter().write("Excluido com sucesso!");
 
-				} else 
+				} else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarUserAjax")) {		
 					
-					if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarUserAjax")) {
 						String nomeBusca = request.getParameter("nomeBusca");
 
 						List<ModelLogin> dadosJsonUser = daoUsuarioRepository.consultaUsuarioList(nomeBusca);
@@ -61,7 +60,14 @@ public class ServletUsuarioController extends HttpServlet {
 
 						response.getWriter().write(json);
 
-					} 
+					} else if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarEditar")) {	
+						String id = request.getParameter("id");
+						ModelLogin modelLogin = daoUsuarioRepository.consultaUsuarioID(id);
+						
+						request.setAttribute("msg", "Usuário em edição");
+						request.setAttribute("modolLogin", modelLogin);
+						request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
+					}
 
 				
 				else {
