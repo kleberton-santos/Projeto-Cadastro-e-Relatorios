@@ -9,7 +9,8 @@ import model.ModelLogin;
 
 public class DAOLoginRepository {
 	
-private Connection connection;
+	
+	private Connection connection;
 	
 	
 	public DAOLoginRepository() {
@@ -33,4 +34,5 @@ private Connection connection;
 		
 		return false; /*nao autenticado*/
 	}
+
 }
