@@ -7,11 +7,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>curso-jsp</name>
-	<description>curso jsp jdev treinamento d</description>
-
-
-
-	<dependencies>
+	<description>curso jsp jdev treinamento</description>
+	
+	
+<dependencies>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>

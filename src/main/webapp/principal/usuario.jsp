@@ -216,11 +216,12 @@
         </div>
     </div>
 
-     
-    <!-- Required Jquery -->
+<!-- Required Jquery -->
     <jsp:include page="javascriptfile.jsp"></jsp:include>
-    
- <!-- Modal -->
+
+
+
+<!-- Modal -->
 <div class="modal fade" id="exampleModalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -391,4 +392,3 @@ function limparForm() {
 
 </body>
 </html>
-    
