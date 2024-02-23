@@ -83,7 +83,7 @@ public class ServletUsuarioController extends ServletGenericUtil {
 			     List<ModelLogin> modelLogins = daoUsuarioRepository.consultaUsuarioList(super.getUserLogado(request));
 			     request.setAttribute("modelLogins", modelLogins);
 			     
-			    request.setAttribute("msg", "Usu�rio em edi��o");
+			    request.setAttribute("msg", "Usuário em edição");
 				request.setAttribute("modolLogin", modelLogin);
 				request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
 				request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
@@ -93,9 +93,9 @@ public class ServletUsuarioController extends ServletGenericUtil {
 			 
 			 List<ModelLogin> modelLogins = daoUsuarioRepository.consultaUsuarioList(super.getUserLogado(request));
 			 
-			 request.setAttribute("msg", "Usu�rios carregados");
+			 request.setAttribute("msg", "Usuários carregados");
 		     request.setAttribute("modelLogins", modelLogins);
-			 request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
+		     request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
 			 request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
 			 
 		 }
@@ -112,11 +112,20 @@ public class ServletUsuarioController extends ServletGenericUtil {
 			 }
 			 
 		 }
+		 else if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("paginar")) {
+			 Integer offset = Integer.parseInt(request.getParameter("pagina"));
+			 
+			 List<ModelLogin> modelLogins = daoUsuarioRepository.consultaUsuarioListPaginada(this.getUserLogado(request), offset);
+			 
+			 request.setAttribute("modelLogins", modelLogins);
+		     request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
+			 request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
+		 }
 		
 		 else {
 			 List<ModelLogin> modelLogins = daoUsuarioRepository.consultaUsuarioList(super.getUserLogado(request));
 		     request.setAttribute("modelLogins", modelLogins);
-			 request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
+		     request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
 			 request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
 		 }
 		 
@@ -136,7 +145,7 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		
 		try {
 			
-		String msg = "Opera��o realizada com sucesso!";	
+		String msg = "Operação realizada com sucesso!";	
 		
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
@@ -145,7 +154,6 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		String senha = request.getParameter("senha");
 		String perfil = request.getParameter("perfil");
 		String sexo = request.getParameter("sexo");
-		
 		String cep = request.getParameter("cep");
 		String logradouro = request.getParameter("logradouro");
 		String bairro = request.getParameter("bairro");
@@ -162,7 +170,6 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		modelLogin.setSenha(senha);
 		modelLogin.setPerfil(perfil);
 		modelLogin.setSexo(sexo);
-		
 		modelLogin.setCep(cep);
 		modelLogin.setLogradouro(logradouro);
 		modelLogin.setBairro(bairro);
@@ -185,7 +192,7 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		}
 		
 		if (daoUsuarioRepository.validarLogin(modelLogin.getLogin()) && modelLogin.getId() == null) {
-			msg = "J� existe usu�rio com o mesmo login, informe outro login;";
+			msg = "Já existe usuário com o mesmo login, informe outro login;";
 		}else {
 			if (modelLogin.isNovo()) {
 				msg = "Gravado com sucesso!";
@@ -198,7 +205,7 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		
 		
 		 List<ModelLogin> modelLogins = daoUsuarioRepository.consultaUsuarioList(super.getUserLogado(request));
-	    request.setAttribute("modelLogins", modelLogins);
+	     request.setAttribute("modelLogins", modelLogins);
 		request.setAttribute("msg", msg);
 		request.setAttribute("modolLogin", modelLogin);
 		request.setAttribute("totalPagina", daoUsuarioRepository.totalPagina(this.getUserLogado(request)));
