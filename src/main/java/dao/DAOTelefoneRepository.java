@@ -15,37 +15,11 @@ public class DAOTelefoneRepository {
 	
 	private DAOUsuarioRepository daoUsuarioRepository = new DAOUsuarioRepository();
 
-	public DAOTelefoneRepository(Connection connection) {
+	public DAOTelefoneRepository() {
 		connection = SingleConnectionBanco.getConnection();
 
 	}
 	
-	public void gravaTelefone(ModelTelefone modelTelefone) throws Exception {
-		String sql = "insert into telefone (numero, usuario_pai_id, usuario_cad_id) values (?,?,?)";
-		
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.setString(1, modelTelefone.getNumero());
-		preparedStatement.setLong(2, modelTelefone.getUsuario_pai_id().getId());
-		preparedStatement.setLong(3, modelTelefone.getUsuario_cad_id().getId());
-		
-		preparedStatement.execute();
-		
-		connection.commit();
-
-	}
-	
-	public void deleteFone(Long id) throws Exception {
-		String sql = "delete from telefone where id = ?";
-		
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
-		
-		preparedStatement.setLong(1, id);
-		
-		preparedStatement.executeUpdate();
-		
-		connection.commit();
-
-	}
 	
 	public List<ModelTelefone> listFone(Long idUserPai) throws Exception {
 		
@@ -54,17 +28,53 @@ public class DAOTelefoneRepository {
 		String sql = "select * from telefone where usuario_pai_id = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		
+		preparedStatement.setLong(1, idUserPai);
+		
 		ResultSet rs = preparedStatement.executeQuery();
-		while(rs.next()) {
+		
+		while (rs.next()) {
+			
 			ModelTelefone modelTelefone = new ModelTelefone();
+			
 			modelTelefone.setId(rs.getLong("id"));
 			modelTelefone.setNumero(rs.getString("numero"));
 			modelTelefone.setUsuario_cad_id(daoUsuarioRepository.consultaUsuarioID(rs.getLong("usuario_cad_id")));
 			modelTelefone.setUsuario_pai_id(daoUsuarioRepository.consultaUsuarioID(rs.getLong("usuario_pai_id")));
+			
 			retorno.add(modelTelefone);
+			
 		}
+		
 		return retorno;
 	}
-	
-	
+
+	public void gravaTelefone(ModelTelefone modelTelefone) throws Exception {
+
+		String sql = "insert into telefone (numero, usuario_pai_id, usuario_cad_id) values (?,?,?)";
+
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+		preparedStatement.setString(1, modelTelefone.getNumero());
+		preparedStatement.setLong(2, modelTelefone.getUsuario_pai_id().getId());
+		preparedStatement.setLong(3, modelTelefone.getUsuario_cad_id().getId());
+
+		preparedStatement.execute();
+
+		connection.commit();
+
+	}
+
+	public void deleteFone(Long id) throws Exception {
+		
+		String sql = "delete from telefone where id =?";
+		
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+		preparedStatement.setLong(1, id);
+
+		preparedStatement.executeUpdate();
+
+		connection.commit();
+	}
+
 }

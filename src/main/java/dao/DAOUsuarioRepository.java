@@ -23,7 +23,7 @@ public class DAOUsuarioRepository {
 		
 		if (objeto.isNovo()) {/*Grava um novo*/
 		
-		String sql = "INSERT INTO model_login(login, senha, nome, email, usuario_id, perfil, sexo, cep, logradouro, bairro, localidade, uf, numero)  VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?,?,?,?);";
+		String sql = "INSERT INTO model_login(login, senha, nome, email, usuario_id, perfil, sexo, cep, logradouro, bairro, localidade, uf, numero, datanascimento)  VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?,?,?,?,?);";
 		PreparedStatement preparedSql = connection.prepareStatement(sql);
 		
 		preparedSql.setString(1, objeto.getLogin());
@@ -40,6 +40,7 @@ public class DAOUsuarioRepository {
 		preparedSql.setString(11, objeto.getLocalidade());
 		preparedSql.setString(12, objeto.getUf());
 		preparedSql.setString(13, objeto.getNumero());
+		preparedSql.setDate(14, objeto.getDataNascimento());
 		
 		preparedSql.execute();
 		
@@ -61,7 +62,7 @@ public class DAOUsuarioRepository {
 			}
 		
 		}else {
-			String sql = "UPDATE model_login SET login=?, senha=?, nome=?, email=?, perfil=?, sexo=?, cep=?, logradouro=?, bairro =?, localidade=?, uf=?, numero =? WHERE id =  "+objeto.getId()+";";
+			String sql = "UPDATE model_login SET login=?, senha=?, nome=?, email=?, perfil=?, sexo=?, cep=?, logradouro=?, bairro =?, localidade=?, uf=?, numero =?, datanascimento =? WHERE id =  "+objeto.getId()+";";
 			
 			PreparedStatement prepareSql = connection.prepareStatement(sql);
 			
@@ -78,6 +79,7 @@ public class DAOUsuarioRepository {
 			prepareSql.setString(10, objeto.getLocalidade());
 			prepareSql.setString(11, objeto.getUf());
 			prepareSql.setString(12, objeto.getNumero());
+			prepareSql.setDate(13, objeto.getDataNascimento());
 			
 			prepareSql.executeUpdate();
 			
@@ -163,7 +165,6 @@ public class DAOUsuarioRepository {
 	
 	
 	
-	
 	public List<ModelLogin> consultaUsuarioList(Long userLogado) throws Exception {
 		
 		List<ModelLogin> retorno = new ArrayList<ModelLogin>();
@@ -193,10 +194,12 @@ public class DAOUsuarioRepository {
 	}
 	
 	
+	
 	public int consultaUsuarioListTotalPaginaPaginacao(String nome, Long userLogado) throws Exception {
 		
-
+		
 		String sql = "select count(1) as total from model_login  where upper(nome) like upper(?) and useradmin is false and usuario_id = ? ";
+	
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, "%" + nome + "%");
 		statement.setLong(2, userLogado);
@@ -218,7 +221,8 @@ public class DAOUsuarioRepository {
 		}
 		
 		return pagina.intValue();
-}
+		
+	}
 	
 	
 	public List<ModelLogin> consultaUsuarioListOffSet(String nome, Long userLogado, int offset) throws Exception {
@@ -250,6 +254,7 @@ public class DAOUsuarioRepository {
 		
 		return retorno;
 	}
+	
 	
 	public List<ModelLogin> consultaUsuarioList(String nome, Long userLogado) throws Exception {
 		
@@ -390,6 +395,7 @@ public class DAOUsuarioRepository {
 	}
 	
 	
+	
 	public ModelLogin consultaUsuarioID(Long id) throws Exception  {
 		
 		ModelLogin modelLogin = new ModelLogin();
@@ -424,6 +430,7 @@ public class DAOUsuarioRepository {
 		return modelLogin;
 		
 	}
+	
 	
 	
 	public ModelLogin consultaUsuarioID(String id, Long userLogado) throws Exception  {
