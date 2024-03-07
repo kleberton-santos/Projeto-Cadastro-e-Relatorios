@@ -87,6 +87,13 @@
                                                             </div>
                                                             
                                                             <div class="form-group form-default form-static-label">
+                                                                <input type="text"  name="rendamensal" id="rendamensal" class="form-control" required="required" value="${modolLogin.rendamensal}">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Renda Mensal:</label>
+                                                            </div>  
+                                                            
+                                                            
+                                                            <div class="form-group form-default form-static-label">
                                                                 <input type="email" name="email" id="email" class="form-control" required="required" autocomplete="off" value="${modolLogin.email}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">E-mail:</label>
@@ -337,6 +344,26 @@
 
 
 <script type="text/javascript">
+
+$("#rendamensal").maskMoney({showSymbol:true, symbol:"R$ ", decimal:",", thousands:"."});
+
+const formatter = new Intl.NumberFormat('pt-BR', {
+    currency : 'BRL',
+    minimumFractionDigits : 2
+});
+
+$("#rendamensal").val(formatter.format($("#rendamensal").val()));
+
+$("#rendamensal").focus();
+
+var dataNascimento = $("#dataNascimento").val();
+
+var dateFormat = new Date(dataNascimento);
+
+$("#dataNascimento").val(dateFormat.toLocaleDateString('pt-BR',{timeZone: 'UTC'}));
+
+$("#nome").focus();
+
 
 $( function() {
 	  
