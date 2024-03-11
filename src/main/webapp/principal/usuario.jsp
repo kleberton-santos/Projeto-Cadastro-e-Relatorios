@@ -80,18 +80,17 @@
                                                                 <label class="float-label">Nome:</label>
                                                             </div>
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="dataNascimento" id="dataNascimento" class="form-control" required="required" value="${modolLogin.dataNascimento}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Dat. Nascimento:</label>
-                                                            </div>
+                                                            </div>  
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text"  name="rendamensal" id="rendamensal" class="form-control" required="required" value="${modolLogin.rendamensal}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Renda Mensal:</label>
-                                                            </div>  
-                                                            
+                                                            </div>                                                                                                                         
                                                             
                                                             <div class="form-group form-default form-static-label">
                                                                 <input type="email" name="email" id="email" class="form-control" required="required" autocomplete="off" value="${modolLogin.email}">
@@ -99,8 +98,6 @@
                                                                 <label class="float-label">E-mail:</label>
                                                             </div>
                                                             
-                                                            
-
 															<div class="form-group form-default form-static-label">
 															<select class="form-control"
 																aria-label="Default select example" name="perfil" >
@@ -143,41 +140,44 @@
                                                                 <label class="float-label">Perfil:</label>
 															</div>
 															
+															
 															<div class="form-group form-default form-static-label">
                                                                 <input onblur="pesquisaCep();" type="text" name="cep" id="cep" class="form-control" required="required" autocomplete="off" value="${modolLogin.cep}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Cep</label>
                                                             </div>
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="logradouro" id="logradouro" class="form-control" required="required" autocomplete="off" value="${modolLogin.logradouro}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Logradouro</label>
-                                                            </div>
+                                                            </div> 
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="bairro" id="bairro" class="form-control" required="required" autocomplete="off" value="${modolLogin.bairro}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Bairro</label>
-                                                            </div>
+                                                            </div>   
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="localidade" id="localidade" class="form-control" required="required" autocomplete="off" value="${modolLogin.localidade}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Localidade</label>
-                                                            </div>
+                                                            </div>     
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="uf" id="uf" class="form-control" required="required" autocomplete="off" value="${modolLogin.uf}">
                                                                 <span class="form-bar"></span>
                                                                 <label class="float-label">Estado</label>
-                                                            </div>
+                                                            </div>     
                                                             
-                                                            <div class="form-group form-default form-static-label">
+															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="numero" id="numero" class="form-control" required="required" autocomplete="off" value="${modolLogin.numero}">
                                                                 <span class="form-bar"></span>
-                                                                <label class="float-label">Numero</label>
-                                                            </div>
+                                                                <label class="float-label">Número</label>
+                                                            </div>                                                                                                                                                                                    
+                                                                                                                                                                                                                                                          
+                                                                                                                       
 
 															<div class="form-group form-default form-static-label">
                                                                 <input type="text" name="login" id="login" class="form-control" required="required" autocomplete="off" value="${modolLogin.login}">
@@ -223,11 +223,10 @@
 															<button type="button" class="btn btn-primary waves-effect waves-light" onclick="limparForm();" >Novo</button>
 												            <button  class="btn btn-success waves-effect waves-light">Salvar</button>
 												            <button type="button"  class="btn btn-info waves-effect waves-light" onclick="criarDeleteComAjax();" >Excluir</button>
-												            
-												            <c:if test="${modolLogin.id > 0}"> 
+												             
+												             <c:if test="${modolLogin.id > 0}"> 
 												               <a href="<%= request.getContextPath() %>/SertvletTelefone?iduser=${modolLogin.id}" class="btn btn-primary waves-effect waves-light" >Telefone</a>
 												             </c:if>
-												            
 												            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalUsuario">Pesquisar</button>
                                                         </form> 
                                                    
@@ -257,7 +256,8 @@
 												</tbody>
 											</table>
 										</div>
-										
+
+
 										<nav aria-label="Page navigation example">
 											<ul class="pagination">
 											
@@ -274,7 +274,8 @@
 												
 											</ul>
 										</nav>
-										
+
+
 
 									</div>
                                     <!-- Page-body end -->
@@ -326,12 +327,13 @@
 </table>
 </div>
 
+
 <nav aria-label="Page navigation example">
 <ul class="pagination" id="ulPaginacaoUserAjax">
 											
 </ul>
 </nav>	
-
+										
 <span id="totalResultados"></span>
 	
 	  </div>
@@ -379,13 +381,17 @@ $( function() {
 		});
 } );
 
-	$("#numero").keypress(function (event) {
-	   return /\d/.test(String.fromCharCode(event.keyCode)); 
-	});
 
-	$("#cep").keypress(function (event) {
-	    return /\d/.test(String.fromCharCode(event.keyCode)); 
-	 });
+$("#numero").keypress(function (event) {
+   return /\d/.test(String.fromCharCode(event.keyCode)); 
+});
+
+$("#cep").keypress(function (event) {
+    return /\d/.test(String.fromCharCode(event.keyCode)); 
+ });
+
+
+
 
 function pesquisaCep() {
     var cep = $("#cep").val();
@@ -479,6 +485,7 @@ function buscaUserPagAjax(url){
 	 });
     
 }
+
 
 function buscarUsuario() {
     
@@ -588,4 +595,3 @@ function limparForm() {
 
 </body>
 </html>
-    

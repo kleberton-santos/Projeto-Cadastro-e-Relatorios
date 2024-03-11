@@ -44,7 +44,7 @@ public class DAOUsuarioRepository {
 		preparedSql.setString(12, objeto.getUf());
 		preparedSql.setString(13, objeto.getNumero());
 		preparedSql.setDate(14, objeto.getDataNascimento());
-		preparedSql.setDouble(15, objeto.getRendaMensal());
+		preparedSql.setDouble(15, objeto.getRendamensal());
 		
 		preparedSql.execute();
 		
@@ -84,7 +84,7 @@ public class DAOUsuarioRepository {
 			prepareSql.setString(11, objeto.getUf());
 			prepareSql.setString(12, objeto.getNumero());
 			prepareSql.setDate(13, objeto.getDataNascimento());
-			prepareSql.setDouble(14, objeto.getRendaMensal());
+			prepareSql.setDouble(14, objeto.getRendamensal());
 			
 			
 			prepareSql.executeUpdate();
@@ -191,7 +191,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setPerfil(resultado.getString("perfil"));
 			modelLogin.setSexo(resultado.getString("sexo"));
 			
-			//modelLogin.setTelefones(this.listFone(modelLogin.getId()));
+			modelLogin.setTelefones(this.listFone(modelLogin.getId()));
 			
 			retorno.add(modelLogin);
 		}
@@ -224,7 +224,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setPerfil(resultado.getString("perfil"));
 			modelLogin.setSexo(resultado.getString("sexo"));
 			
-		//	modelLogin.setTelefones(this.listFone(modelLogin.getId()));
+			modelLogin.setTelefones(this.listFone(modelLogin.getId()));
 			
 			retorno.add(modelLogin);
 		}
@@ -388,7 +388,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setUf(resutlado.getString("uf"));
 			modelLogin.setNumero(resutlado.getString("numero"));
 			modelLogin.setDataNascimento(resutlado.getDate("datanascimento"));
-			modelLogin.setRendaMensal(resutlado.getDouble("rendamensal"));
+			modelLogin.setRendamensal(resutlado.getDouble("rendamensal"));
 		}
 		
 		
@@ -427,7 +427,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setUf(resutlado.getString("uf"));
 			modelLogin.setNumero(resutlado.getString("numero"));
 			modelLogin.setDataNascimento(resutlado.getDate("datanascimento"));
-			modelLogin.setRendaMensal(resutlado.getDouble("rendamensal"));
+			modelLogin.setRendamensal(resutlado.getDouble("rendamensal"));
 		}
 		
 		
@@ -464,7 +464,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setUf(resutlado.getString("uf"));
 			modelLogin.setNumero(resutlado.getString("numero"));
 			modelLogin.setDataNascimento(resutlado.getDate("datanascimento"));
-			modelLogin.setRendaMensal(resutlado.getDouble("rendamensal"));
+			modelLogin.setRendamensal(resutlado.getDouble("rendamensal"));
 		}
 		
 		
@@ -503,7 +503,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setUf(resutlado.getString("uf"));
 			modelLogin.setNumero(resutlado.getString("numero"));
 			modelLogin.setDataNascimento(resutlado.getDate("datanascimento"));
-			modelLogin.setRendaMensal(resutlado.getDouble("rendamensal"));
+			modelLogin.setRendamensal(resutlado.getDouble("rendamensal"));
 		}
 		
 		
@@ -543,7 +543,7 @@ public class DAOUsuarioRepository {
 			modelLogin.setUf(resutlado.getString("uf"));
 			modelLogin.setNumero(resutlado.getString("numero"));
 			modelLogin.setDataNascimento(resutlado.getDate("datanascimento"));
-			modelLogin.setRendaMensal(resutlado.getDouble("rendamensal"));
+			modelLogin.setRendamensal(resutlado.getDouble("rendamensal"));
 		}
 		
 		

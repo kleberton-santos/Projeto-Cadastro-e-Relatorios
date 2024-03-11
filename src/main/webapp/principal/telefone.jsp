@@ -121,12 +121,15 @@
 	</div>
 
 	<jsp:include page="javascripfile.jsp"></jsp:include>
-	<script type="text/javascript">
+	
+	
+<script type="text/javascript">
 $("#numero").keypress(function (event) {
     return /\d/.test(String.fromCharCode(event.keyCode)); 
  });
 
-</script>
+ 
+</script>	
 </body>
 
 </html>

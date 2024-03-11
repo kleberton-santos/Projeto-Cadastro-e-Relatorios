@@ -224,7 +224,7 @@ public class ServletUsuarioController extends ServletGenericUtil {
 		modelLogin.setUf(uf);
 		modelLogin.setNumero(numero);
 		modelLogin.setDataNascimento(Date.valueOf(new SimpleDateFormat("yyyy-mm-dd").format(new SimpleDateFormat("dd/mm/yyyy").parse(dataNascimento))));
-		modelLogin.setRendaMensal(Double.valueOf(rendaMensal));
+		modelLogin.setRendamensal(Double.valueOf(rendaMensal));
 		
 		if (ServletFileUpload.isMultipartContent(request)) {
 			
