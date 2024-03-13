@@ -92,7 +92,7 @@
                           </li>
                           <li class="user-profile header-notification">
                               <a href="#!" class="waves-effect waves-light">
-                                
+                                 
                                   <span><%= request.getSession().getAttribute("usuario") %></span>
                                   <i class="ti-angle-down"></i>
                               </a>
@@ -104,23 +104,25 @@
                                           <i class="ti-settings"></i> Settings
                                       </a>
                                   </li>
+                                  
                                   <li class="waves-effect waves-light">
                                       <a href="user-profile.html">
                                           <i class="ti-user"></i> Profile
                                       </a>
                                   </li>
+                                  
                                   <li class="waves-effect waves-light">
                                       <a href="email-inbox.html">
                                           <i class="ti-email"></i> My Messages
                                       </a>
                                   </li>
+                                  
                                   <li class="waves-effect waves-light">
                                       <a href="auth-lock-screen.html">
                                           <i class="ti-lock"></i> Lock Screen
                                       </a>
                                   </li>
-                                  
-                                   -->
+                                  -->
                                   <li class="waves-effect waves-light">
                                       <a href="<%=request.getContextPath() %>/ServletLogin?acao=logout">
                                           <i class="ti-layout-sidebar-left"></i> Sair

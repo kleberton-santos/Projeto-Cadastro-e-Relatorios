@@ -7,7 +7,7 @@
                               <div class="row align-items-center">
                                   <div class="col-md-8">
                                       <div class="page-header-title">
-                                          <h5 class="m-b-10">Projeto Java - JSP</h5>
+                                          <h5 class="m-b-10">Projeto Java Jdev Treinamento</h5>
                                           <p class="m-b-0">Bem vindo!</p>
                                       </div>
                                   </div>
