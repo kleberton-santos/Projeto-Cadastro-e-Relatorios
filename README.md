@@ -1,4 +1,4 @@
-# Projeto de Cadstro de Usuarios, relatórios e graficos
+# Projeto de Cadastro de Usuarios, relatórios e graficos
 
 # Sobre o projeto
 
